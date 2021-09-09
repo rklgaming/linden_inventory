@@ -1,0 +1,472 @@
+@import url('https://fonts.googleapis.com/css2?family=Signika:wght@300;400;500;600;700&display=swap');
+
+html {
+	font-family: 'Signika';
+	user-select: none;
+	color: white;
+}
+
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-shadow: 1px 1px 0px black;
+	overflow:hidden;
+}
+
+.inventory-main {
+	display: none;
+	position: fixed;
+	margin: auto;
+	opacity: 0.9;
+	overflow: hidden;
+}
+
+.inventory-main-leftside {
+	width: 590px;
+	height: 450px;
+	overflow: auto;
+	direction: ltr;
+}
+
+.inventory-main-rightside {
+	width: 590px;
+	height: 450px;
+	overflow: auto;
+	direction: rtl;
+	margin-left: -4px;
+}
+
+.ItemBoxes {
+	position: relative;
+	width: 112px;
+	height: 120px;
+	background-color: rgba(0, 0, 0, 0.2);
+	float: left;
+	top: -2px;
+	margin: 2px 1px 0 1px;
+	border: 0.09vh solid rgba(80,80,80,0.2);
+    border-radius: 10px;
+} 
+
+.inventory-main-leftside > .ItemBoxes:nth-child(1):after {
+	top: 0;
+	left: 0;
+	margin: 0 auto;
+	position: absolute;
+	content: '1';
+	height: 15px !important;
+	width: 15px !important;
+	font-size: 11px;
+	font-weight: bold;
+	font-family: "Basic";
+	text-align: center;
+	line-height: 14px;
+	vertical-align: middle;
+	background-color: white;
+	color: black;
+	text-shadow: none;
+	border: 0.09vh solid rgba(80,80,80,0.2);
+    border-radius: 5px;
+}
+
+.inventory-main-leftside > .ItemBoxes:nth-child(2):after {
+	top: 0;
+	left: 0;
+	margin: 0 auto;
+	position: absolute;
+	content: '2';
+	height: 15px !important;
+	width: 15px !important;
+	font-size: 11px;
+	font-weight: bold;
+	font-family: "Basic";
+	text-align: center;
+	line-height: 14px;
+	vertical-align: middle;
+	background-color: white;
+	color: black;
+	text-shadow: none;
+	border: 0.09vh solid rgba(80,80,80,0.2);
+    border-radius: 5px;
+}
+
+.inventory-main-leftside > .ItemBoxes:nth-child(3):after {
+	top: 0;
+	left: 0;
+	margin: 0 auto;
+	position: absolute;
+	content: '3';
+	height: 15px !important;
+	width: 15px !important;
+	font-size: 11px;
+	font-weight: bold;
+	font-family: "Basic";
+	text-align: center;
+	line-height: 14px;
+	vertical-align: middle;
+	background-color: white;
+	color: black;
+	text-shadow: none;
+	border: 0.09vh solid rgba(80,80,80,0.2);
+    border-radius: 5px;
+}
+
+.inventory-main-leftside > .ItemBoxes:nth-child(4):after {
+	top: 0;
+	left: 0;
+	margin: 0 auto;
+	position: absolute;
+	content: '4';
+	height: 15px !important;
+	width: 15px !important;
+	font-size: 11px;
+	font-weight: bold;
+	font-family: "Basic";
+	text-align: center;
+	line-height: 14px;
+	vertical-align: middle;
+	background-color: white;
+	color: black;
+	text-shadow: none;
+	border: 0.09vh solid rgba(80,80,80,0.2);
+    border-radius: 5px;
+}
+
+
+
+.itemboxes-container {
+	height: 130px;
+	min-width: 110px;
+	max-width: 550px;
+	width: fit-content;
+	position: absolute;
+	left: 47%;
+	bottom: 15%;
+	overflow: hidden;
+}
+
+.template {
+	display: none;
+}
+
+.itembox-container {
+	display: none;
+	position: relative;
+	float: left;
+	margin: 0.5px;
+	width: 110px;
+	height: 130px;
+	z-index: 1;
+	background-color: rgba(0, 0, 0, 0.2);
+	outline: 1px solid rgba(38,38,38,0.1);
+	outline-offset: -1px;
+}
+
+.hotbar-container {
+	height: 110px;
+	min-width: 110px;
+	width: fit-content;
+	position: absolute;
+	left: 50%;
+	bottom: 2%;
+	z-index: 1;
+	transform: translate(-50%, 0%);
+	overflow: hidden;
+}
+
+.hotslot-container {
+	position: relative;
+	float: left;
+	margin: 1px;
+	width: 110px;
+	height: 110px;
+	z-index: 1;
+	background-color: rgba(0, 0, 0, 0.2);
+	outline: 1px solid rgba(38,38,38,0.1);
+	outline-offset: -1px;
+}
+
+#itembox-action {
+	position: absolute;
+	padding: 4px 0 4px 0;
+	width: 100%;
+	text-align: center;
+	left: 0;
+	font-size: 13px;
+	background-color: white;
+	outline: 1px solid rgba(38,38,38,0.1);
+	outline-offset: -1px;
+	color: #111;
+	text-shadow: none !important;
+	font-weight: 700;
+}
+
+.itembox-img img {
+	display:block;
+	position: relative;
+	margin: 0 auto;
+	margin-top: 10%;
+	width: auto;
+	height: auto;
+	max-width: 100%;
+	max-height: 100%;
+	bottom: -10px;
+	z-index: -1;
+}
+
+.hotslot-img img {
+	display:block;
+	position: relative;
+	margin: 0 auto;
+	width: auto;
+	height: auto;
+	max-width: 100%;
+	max-height: 100%;
+	top: 5px;
+	z-index: -1 !important;
+}
+
+#itembox-label {
+	padding: 5px 0 5px 0 !important;
+}
+
+.item-slot-img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+.item-slot-img img {
+	display:block;
+	position: relative;
+	margin: 0 auto;
+	margin-top: 10%;
+	width: auto;
+	height: auto;
+	max-width: 80%;
+	max-height: 80%;
+}
+
+.item-slot-label, #itembox-label {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	background-color: rgba(12, 12, 12, 0.3);
+	height: fit-content;
+	padding: 2px 0 2px 0;
+	font-size: 10px;
+	text-align: center;
+	text-transform: uppercase;
+	font-variant: small-caps;
+	outline: 1px solid rgba(33,33,33,0.4);
+	outline-offset: -1px;
+}
+
+.item-slot-durability-bar {
+	position: absolute;
+	height: 5px;
+	width: 112%;
+	top: -4px;
+	background-color: #1d1d1de8;
+	outline: 1px solid rgba(38,38,38,0.2);
+	outline-offset: -1px;
+}
+
+.iteminfo {
+	display: none;
+	position: absolute;
+	padding: 0 10px 0 10px;
+	font-weight: 500;
+	font-size: 13px;
+	top: 75%;
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+	width: 20%;
+	min-width: 300px;
+	user-select: all !important;
+	color: white;
+}
+
+p {
+	line-height: 2px;
+}
+
+.iteminfo-label {
+	font-size: 15px;
+	font-weight:600;
+}
+
+.line {
+	border: 0;
+	border-top: 1px solid rgba(255,255,255,0.25);
+	border-radius:2px;
+	margin-top:5px;
+	margin-bottom:5px;
+}
+
+.item-slot-count p {
+	color: #ffffff;
+	text-align: right;
+	right: 2px;
+	top: -3px;
+	font-size: 11px;
+	position: absolute;
+}
+
+.inv-option-item > p {
+	color: white;
+	text-align: center;
+	line-height: 48px;
+	text-transform: uppercase;
+	font-size: 1.1pt;
+	font-family: Verdana;
+}
+
+.inv-option-item { 
+	position: relative;
+	display: block;
+	margin: 0 auto;
+	height: 40px;
+	width: 150px;
+	top: 30%;
+	background-color:rgba(48, 71, 94, 0.9);
+	color: white;
+	text-align: center;
+	transition: 0.2s ease-in-out all;
+	border: 0.09vh solid rgba(80,80,80,0.2);
+    border-radius: 5px;
+}
+
+.controls-div {
+    position: absolute;
+    left: 50%;
+    top: 55%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(48, 71, 94, 0.2);
+    width: 200px;
+    height: 300px;
+	border: 0.09vh solid rgba(80,80,80,0.2);
+    border-radius: 5px;
+}
+
+.use {
+    margin: 0 auto;
+    width: 60px;
+    height: 60px;
+    top:-10%;
+    margin-top: 0px;
+	margin-bottom: 30px;
+    opacity: 0.5;
+    display: block;
+    position: relative;
+}
+
+.give {
+    margin: 0 auto;
+    width: 50px;
+    height: 50px;
+    top: -10%;
+    margin-bottom: 30px;
+    opacity: 0.5;
+    display: block;
+    position: relative;
+}
+
+.give:hover, .use:hover, .close:hover, .inv-option-item:hover {
+	background-color: rgba(218, 0, 0, 0.2);
+}
+
+.close {
+	position: relative;
+	display: block;
+	margin: 0 auto;
+	height: 40px;
+	width: 150px;
+	top: 40%;
+	color: white;
+	background-color:rgba(48, 71, 94, 0.9);
+	transition: 0.2s ease-in-out all;
+	border: 0.09vh solid rgba(80,80,80,0.2);
+    border-radius: 5px;
+}
+
+
+/* scrollbar Hsn*/
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+::-webkit-scrollbar {
+	width: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: rgba(48, 71, 94, 0.7);
+}
+
+.ui-draggable-dragging {
+	pointer-events: none;
+	width: 100px;
+	height: 100px;
+	position: relative;
+	float: left;
+	margin: 2px 1px 0 1px;
+}
+
+.ui-progressbar {
+	background: rgba(0,0,0,0.5);
+	width: 580px;
+	margin-left: 1px;
+	height: 25px;
+	border-radius: 5px;
+	border: 1px solid rgba(0,0,0,0.5);
+}
+
+.ui-progressbar-value 
+{
+	background: #30a121;
+	border: 0px;
+	border-radius: 0;
+	transition: all 1s ease-out;
+}
+
+.ui-widget.ui-widget-content {
+    border: 0px solid #c5c5c5;
+}
+
+
+.progressLeftLabel {
+	position: absolute;
+	left: 0.5%;
+	top: 27px;
+	font-size: 15px;
+	color: #fff;
+	font-weight: bold;
+	padding: 5px;
+	border-radius: 5px;
+}
+
+.progressRightLabel {
+	position: absolute;
+	right: 34%;
+	top: 27px;
+	font-size: 15px;
+	color: #fff;
+	font-weight: bold;
+	padding: 5px;
+	border-radius: 5px;
+} 
+
+.craft {
+    margin: 0 auto;
+    width: 50px;
+    height: 50px;
+    top: 33%;
+    margin-top: 30px;
+    opacity: 0.5;
+    display: block;
+    position: relative;
+}
